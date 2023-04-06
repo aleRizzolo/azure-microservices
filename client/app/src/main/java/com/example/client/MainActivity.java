@@ -20,7 +20,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    private TextInputLayout emailInput, passwordInput;
+    private EditText emailInput, passwordInput;
     private Button loginButton, sendUserToRegister;
     private LoginAPI loginPlaceHolderAPI;
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginUser(emailInput.getEditText().getText().toString(), passwordInput.getEditText().getText().toString());
+                loginUser(emailInput.getText().toString(), passwordInput.getText().toString());
             }
         });
 
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(MainActivity.this, LoginSuccess.class);
-                    intent.putExtra("email", emailInput.getEditText().getText().toString());
+                    intent.putExtra("email", emailInput.getText().toString());
                     startActivity(intent);
                 }
             }
