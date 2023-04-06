@@ -1,5 +1,6 @@
 import * as dotenv from "dotenv"
 import { ServiceBusClient, ServiceBusMessage } from "@azure/service-bus"
+import { sendEmail } from "./sendEmail"
 
 dotenv.config()
 
@@ -19,7 +20,7 @@ async function main() {
 
   // function to handle messages
   const myMessageHandler = async (messageReceived: any) => {
-    console.log(`Received message: ${messageReceived.body}`)
+    sendEmail(messageReceived.body)
   }
 
   // function to handle any errors
