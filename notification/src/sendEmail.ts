@@ -10,10 +10,10 @@ export const sendEmail = async (email: string) => {
   const POLLER_WAIT_TIME = 10
   try {
     const message = {
-      senderAddress: "esamecloud2023",
+      senderAddress: "",
       content: {
-        subject: "Welcome to Azure Communication Services Email",
-        plainText: "This email message is sent from Azure Communication Services Email using the JavaScript SDK.",
+        subject: "Esame cloud 2023",
+        plainText: "Registrazione avvenuta con successo",
       },
       recipients: {
         to: [
@@ -33,7 +33,6 @@ export const sendEmail = async (email: string) => {
     let timeElapsed = 0
     while (!poller.isDone()) {
       poller.poll()
-      console.log("Email send polling in progress")
 
       await new Promise((resolve) => setTimeout(resolve, POLLER_WAIT_TIME * 1000))
       timeElapsed += 10
