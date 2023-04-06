@@ -3,7 +3,7 @@ import { EmailClient } from "@azure/communication-email"
 
 dotenv.config()
 
-const connectionString = process.env["COMMUNICATION_SERVICES_CONNECTION_STRING"]
+const connectionString = process.env.COMMUNICATION_SERVICES_CONNECTION_STRING
 const emailClient = new EmailClient(connectionString!)
 
 export const sendEmail = async (email: string) => {
