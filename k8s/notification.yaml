@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-exam
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notification-exam
+  template:
+    metadata:
+      labels:
+        app: notification-exam
+    spec:
+      containers:
+        image:
+        image: 
+          volumeMounts:
+            - name: 
+              mountPath:
+              readOnly: true
+        ports:
+          - containerPort: 3000
+        imagePullPolicy: Always
+      volumes:
+        - name:
+          configMap:
+            name:
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-service
+spec:
+  selector:
+    app: notification-exam
+  ports:
+    - port: 3000
+      targetPort: 3000
