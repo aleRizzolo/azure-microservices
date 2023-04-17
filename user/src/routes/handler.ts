@@ -65,16 +65,16 @@ export const deleteAccount = async (req: Request, res: Response) => {
 
 export const modifyAccount = async (req: Request, res: Response) => {
   const userEmail: Signup = req.body.email
-  //find user by email
+  //we are sure that an user exists
   const user = await UserModel.findOne({ userEmail })
 
   if (!user) {
     return res.status(404).send({ message: "User not found" })
   }
 
-  const { email, firstName, lastName }: Update = req.body
+  const { firstName, lastName }: Update = req.body
 
-  const modifiedUser = await UserModel.updateOne({ email: email, firstName: firstName, lastName: lastName })
+  const modifiedUser = await UserModel.updateOne({ firstName: firstName, lastName: lastName })
 
   if (!modifiedUser) {
     return res.status(500).send({ message: "Error while updating user" })
