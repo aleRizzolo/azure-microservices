@@ -2,7 +2,7 @@ import bcrypt from "bcrypt"
 import { Request, Response } from "express"
 
 import { UserModel } from "../models"
-import { Login, Signup } from "../types"
+import { Login, Signup, Update } from "../types"
 
 export const login = async (req: Request, res: Response) => {
   const { email, password }: Login = req.body
@@ -64,15 +64,20 @@ export const deleteAccount = async (req: Request, res: Response) => {
 }
 
 export const modifyAccount = async (req: Request, res: Response) => {
-  const email: Signup = req.body.emai
+  const userEmail: Signup = req.body.email
   //find user by email
-  const user = await UserModel.findOne({ email })
+  const user = await UserModel.findOne({ userEmail })
 
   if (!user) {
     return res.status(404).send({ message: "User not found" })
   }
 
-  //take everything from the body
-  //save again with all the info
-  //need to create another interface
+  const { email, firstName, lastName }: Update = req.body
+
+  const modifiedUser = await UserModel.updateOne({ email: email, firstName: firstName, lastName: lastName })
+
+  if (!modifiedUser) {
+    return res.status(500).send({ message: "Error while updating user" })
+  }
+  return res.status(200).send({ message: "User updated" })
 }
