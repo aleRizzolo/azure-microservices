@@ -62,3 +62,17 @@ export const deleteAccount = async (req: Request, res: Response) => {
 
   return res.status(200).send({ message: "Account deleted" })
 }
+
+export const modifyAccount = async (req: Request, res: Response) => {
+  const email: Signup = req.body.emai
+  //find user by email
+  const user = await UserModel.findOne({ email })
+
+  if (!user) {
+    return res.status(404).send({ message: "User not found" })
+  }
+
+  //take everything from the body
+  //save again with all the info
+  //need to create another interface
+}
