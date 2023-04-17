@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+data:
+  DATABASE_URI: eW91cmJhc2U2NHNlY3JldA==
+  USER_URL: eW91cmJhc2U2NHNlY3JldA==
+  CONNECTION_STRING: eW91cmJhc2U2NHNlY3JldA==
+  QUEUE_NAME: eW91cmJhc2U2NHNlY3JldA==
