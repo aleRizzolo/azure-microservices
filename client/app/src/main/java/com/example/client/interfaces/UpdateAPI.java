@@ -7,6 +7,6 @@ import retrofit2.http.Body;
 import retrofit2.http.PATCH;
 
 public interface UpdateAPI {
-    @PATCH("authSignup")
-    Call<Update> signupUser(@Body Update update);
+    @PATCH("modifyAccount")
+    Call<Update> modifyUser(@Body Update update);
 }

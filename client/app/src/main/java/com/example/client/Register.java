@@ -71,7 +71,7 @@ public class Register extends AppCompatActivity {
             public void onResponse(Call<Signup> call, Response<Signup> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(Register.this, "Error", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     Toast.makeText(Register.this, "Signup success", Toast.LENGTH_SHORT).show();
                     emailInput.setText("");
                     passwordInput.setText("");
