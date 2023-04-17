@@ -8,17 +8,47 @@
 
     <TextView
         android:id="@+id/message"
-        android:text="LOGIN SUCCESS"
+        android:text="Modify your informations"
         android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"/>
+
+    <EditText
+        android:id="@+id/newFirstName"
+        android:layout_below="@+id/message"
+        android:hint="Add new firstName"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/newLastName"
+        android:layout_below="@+id/newFirstName"
+        android:hint="Add new lastName"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/submit_modifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newLastName"
+        android:layout_centerHorizontal="true"
+        android:text="Modify Account"
+        android:layout_marginTop="50dp"/>
 
     <Button
         android:id="@+id/delete_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/message"
+        android:layout_below="@+id/submit_modifications"
         android:layout_centerHorizontal="true"
         android:text="Delete Account"
         android:layout_marginTop="35dp"/>

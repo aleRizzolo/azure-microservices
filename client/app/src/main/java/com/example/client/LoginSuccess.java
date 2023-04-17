@@ -20,8 +20,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginSuccess extends AppCompatActivity {
-    private TextView messageSuccess;
-    private Button deleteAccountButton;
+    private TextView messageSuccess, newFirstName, newLastName;
+    private Button deleteAccountButton, modifyAccountButton;
     private DeleteAPI deletePlaceHolderAPI;
 
     @Override
@@ -35,6 +35,8 @@ public class LoginSuccess extends AppCompatActivity {
 
         messageSuccess = findViewById(R.id.message);
         deleteAccountButton = findViewById(R.id.delete_button);
+        newFirstName = findViewById(R.id.newFirstName);
+        newLastName = findViewById(R.id.newLastName);
 
         messageSuccess.setText("Hello " +userEmail);
 

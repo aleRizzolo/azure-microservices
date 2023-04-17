@@ -3,6 +3,8 @@ package com.example.client;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,6 +37,12 @@ public class Register extends AppCompatActivity {
         firstNameInput = findViewById(R.id.firstName);
         lastNameInput = findViewById(R.id.lastName);
         submitButton = findViewById(R.id.register);
+
+        //call the interfaces that locks submit button if a filed is empty
+        emailInput.addTextChangedListener(registrerTextWatcher);
+        passwordInput.addTextChangedListener(registrerTextWatcher);
+        firstNameInput.addTextChangedListener(registrerTextWatcher);
+        lastNameInput.addTextChangedListener(registrerTextWatcher);
 
         //build retrofit for api call
         Retrofit retrofit = new Retrofit.Builder()
@@ -78,4 +86,26 @@ public class Register extends AppCompatActivity {
             }
         });
     }
+
+    private TextWatcher registrerTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            String newEmailEditText = emailInput.getText().toString().trim();
+            String newPasswordEditText = passwordInput.getText().toString().trim();
+            String newFirstNameEditText = firstNameInput.getText().toString().trim();
+            String newLastNameEditText = lastNameInput.getText().toString().trim();
+
+            submitButton.setEnabled(!newEmailEditText.isEmpty() && !newPasswordEditText.isEmpty() && !newFirstNameEditText.isEmpty() && !newLastNameEditText.isEmpty());
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };
 }

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.password);
         loginButton = findViewById(R.id.login);
         sendUserToRegister = findViewById(R.id.register);
+
+        //call the interfaces that locks submit button if a filed is empty
+        emailInput.addTextChangedListener(loginTextWatcher);
+        passwordInput.addTextChangedListener(loginTextWatcher);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:3000")
@@ -81,4 +87,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private TextWatcher loginTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            String submitEmailEditText = emailInput.getText().toString().trim();
+            String submitPasswordEditText = passwordInput.getText().toString().trim();
+
+            loginButton.setEnabled(!submitEmailEditText.isEmpty() && !submitPasswordEditText.isEmpty());
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };
 }
