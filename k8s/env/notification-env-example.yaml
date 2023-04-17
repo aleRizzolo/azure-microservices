@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+data:
+  CONNECTION_STRING: eW91cmJhc2U2NHNlY3JldA==
+  QUEUE_NAME: eW91cmJhc2U2NHNlY3JldA==
+  COMMUNICATION_SERVICES_CONNECTION_STRING: eW91cmJhc2U2NHNlY3JldA==
