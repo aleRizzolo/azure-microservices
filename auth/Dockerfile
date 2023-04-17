@@ -10,6 +10,6 @@ COPY dist dist/
 
 ENV PORT=3000
 
-EXPOSE 3000
+EXPOSE ${PORT}
 
 CMD [ "npm", "run", "start"]
