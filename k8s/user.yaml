@@ -14,18 +14,25 @@ spec:
     spec:
       containers:
         - name: user-exam
-          image: 
-          volumeMounts:
-            - name: 
-              mountPath: 
-              readOnly: true
+          image:
+          resources:
+            requests:
+              memory: "90Mi"
+              cpu: "90m"
+            limits:
+              memory: "80Mi"
+          env:
+            - name: DATABASE_URI
+              valueFrom:
+                secretKeyRef:
+                name: user-env
+                key: DATABASE_URI
           ports:
             - containerPort: 3000
           imagePullPolicy: Always
-      volumes:
-        - name: 
-          configMap:
-            name: 
+      imagePullSecrets:
+        - name: regcred
+
 ---
 apiVersion: v1
 kind: Service

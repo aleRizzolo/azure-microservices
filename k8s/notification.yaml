@@ -14,18 +14,33 @@ spec:
     spec:
       containers:
         image:
-        image: 
-          volumeMounts:
-            - name: 
-              mountPath:
-              readOnly: true
+        resources:
+          requests:
+            memory: "90Mi"
+            cpu: "90m"
+          limits:
+            memory: "80Mi"
+        env:
+          - name: CONNECTION_STRING
+            valueFrom:
+              secretKeyRef:
+              name: notification-env
+              value: CONNECTION_STRING
+          - name: QUEUE_NAME
+            valueFrom:
+              secretKeyRef:
+              name: notification-env
+              value: QUEUE_NAME
+          - name: COMMUNICATION_SERVICES_CONNECTION_STRING
+            valueFrom:
+              secretKeyRef:
+              name: notification-env
+              value: COMMUNICATION_SERVICES_CONNECTION_STRING
         ports:
           - containerPort: 3000
         imagePullPolicy: Always
-      volumes:
-        - name:
-          configMap:
-            name:
+      imagePullSecrets:
+        - name: regcred
 
 ---
 apiVersion: v1
