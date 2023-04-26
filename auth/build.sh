@@ -4,7 +4,7 @@ read -p "Insert your regitry name: " registry_name
 image_name=$registry_name/auth
 
 echo "*** Generating JavaScript ***"
-npm run install
+npm install
 npm run build
 
 echo "*** Generating and pushing Docker image ***"
