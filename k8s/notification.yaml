@@ -36,6 +36,11 @@ spec:
               secretKeyRef:
               name: notification-env
               value: COMMUNICATION_SERVICES_CONNECTION_STRING
+          - name: SENDER_ADDRESS
+            valueFrom:
+              secretKeyRef:
+              name: notification-env
+              value: SENDER_ADDRESS
         ports:
           - containerPort: 3000
         imagePullPolicy: Always

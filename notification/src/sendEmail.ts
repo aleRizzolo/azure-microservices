@@ -10,7 +10,7 @@ export const sendEmail = async (email: string) => {
   const POLLER_WAIT_TIME = 10
   try {
     const message = {
-      senderAddress: "",
+      senderAddress: process.env.SENDER_ADDRESS!,
       content: {
         subject: "Esame cloud 2023",
         plainText: "Registrazione avvenuta con successo",
