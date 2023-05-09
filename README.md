@@ -26,8 +26,9 @@ azure-microservices is built using Azure services, in particular:
 
 ### How to deploy the application
 
-1. Create your Azure infrastructure.<br>
-   If you want to run this application on Cloud, you need to create some Azure resources:
+#### 1. Create your Azure infrastructure.<br>
+
+If you want to run this application on Cloud, you need to create some Azure resources:
 
 - AKS
 - Azure Container Service
@@ -38,7 +39,7 @@ azure-microservices is built using Azure services, in particular:
 
 You can manually create all the resources listed above, but to ease this process (and if Terraform is installed on your system), you can run all the configuration in <code>terraform/</code> folder. Open a shell inside this folder and execute <code>terraform init</code> and <code>terraform apply</code>
 
-2. Build Docker images<br>
+#### 2. Build Docker images<br>
 
 - First, clone the repo:<br>
   <code>git clone https://github.com/aleRizzolo/azure-microservices.git</code>
@@ -47,27 +48,27 @@ You can manually create all the resources listed above, but to ease this process
 
 - Follow the instruction displayed
 
-3. Create secrets for Kubernetes
+#### 3. Create secrets for Kubernetes
 
-   All the microservices need secrets. These resources keep some important information, such as: database endpoint and Service Bus endpoint. To get these informations, go to Azure portal and select the resources that You have previously created and search for the Endpoint's url. After You get these information:
+All the microservices need secrets. These resources keep some important information, such as: database endpoint and Service Bus endpoint. To get these informations, go to Azure portal and select the resources that You have previously created and search for the Endpoint's url. After You get these information:
 
 - base64 your string
 - Paste the string in all the yaml files that require the information.<br>
   **_Example:_** copy CosmosDB endpoint, base64 the connectin string (you can use both the terminal or this [website](https://www.base64encode.org/)), copy the encoded stirng and paste it into <code>auth-env.yaml</code>, <code>user.yaml</code> files
 
-4. Apply all the configurations <br>
+#### 4. Apply all the configurations <br>
 
 - To deploy all the configurations in Kubernetes, run the following command:<br>
   <code>kubectl apply -f k8s/</code>
 
   **_NOTE:_** before apply the command listed above, be sure to be in the project's root directory
 
-5. Create Ingress-Nignx resource
+#### 5. Create Ingress-Nignx resource
 
-   The Kubernetes cluster needs a resource, called [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to be accessible from the outside. To create these resource, run the following command:
-   <code>kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.7.1/deploy/static/provider/cloud/deploy.yaml</code>
+The Kubernetes cluster needs a resource, called [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to be accessible from the outside. To create these resource, run the following command:
+<code>kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.7.1/deploy/static/provider/cloud/deploy.yaml</code>
 
-6. Build Android client
+#### 6. Build Android client
 
 - Open the <code>client</code> folder with Andorid Studio and wait for Gradle to finish all the build process
 
