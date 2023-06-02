@@ -1,4 +1,4 @@
-# ⚠️ Project still in develop process
+# ⚠️ Project still in development process
 # azure-microservices
 
 ## Architecture
