@@ -12,6 +12,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "esame" {
-  name     = "esame-cloud"
-  location = "East US"
+  name     = var.resource_group_name
+  location = var.resource_group_location
 }
