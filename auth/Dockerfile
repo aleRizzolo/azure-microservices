@@ -8,7 +8,9 @@ RUN npm install
 
 COPY dist dist/
 
-ENV PORT=3000
+ENV PORT=80
+
+ENV USER_URL=http://user-service
 
 EXPOSE ${PORT}
 

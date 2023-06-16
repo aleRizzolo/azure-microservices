@@ -14,36 +14,31 @@ spec:
     spec:
       containers:
         - name: auth-exam
-          image:
+          image: alessiorizz/auth
           resources:
             requests:
               memory: "90Mi"
               cpu: "90m"
             limits:
-              memory: "80Mi"
+              memory: "90Mi"
           env:
             - name: DATABASE_URI
               valueFrom:
                 secretKeyRef:
-                name: auth-env
-                key: DATABASE_URI
-            - name: USER_URL
-              valueFrom:
-                secretKeyRef:
-                name: auth-env
-                key: USER_URL
+                  name: auth-env
+                  key: DATABASE_URI
             - name: CONNECTION_STRING
               valueFrom:
                 secretKeyRef:
-                name: auth-env
-                key: CONNECTION_STRING
+                  name: auth-env
+                  key: CONNECTION_STRING
             - name: QUEUE_NAME
               valueFrom:
                 secretKeyRef:
-                name: auth-env
-                key: QUEUE_NAME
+                  name: auth-env
+                  key: QUEUE_NAME
           ports:
-            - containerPort: 3000
+            - containerPort: 80
           imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
@@ -57,5 +52,5 @@ spec:
   selector:
     app: auth-exam
   ports:
-    - port: 3000
-      targetPort: 3000
+    - port: 80
+      targetPort: 80

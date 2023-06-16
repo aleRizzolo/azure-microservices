@@ -24,25 +24,25 @@ spec:
           - name: CONNECTION_STRING
             valueFrom:
               secretKeyRef:
-              name: notification-env
-              value: CONNECTION_STRING
+                name: notification-env
+                value: CONNECTION_STRING
           - name: QUEUE_NAME
             valueFrom:
               secretKeyRef:
-              name: notification-env
-              value: QUEUE_NAME
+                name: notification-env
+                value: QUEUE_NAME
           - name: COMMUNICATION_SERVICES_CONNECTION_STRING
             valueFrom:
               secretKeyRef:
-              name: notification-env
-              value: COMMUNICATION_SERVICES_CONNECTION_STRING
+                name: notification-env
+                value: COMMUNICATION_SERVICES_CONNECTION_STRING
           - name: SENDER_ADDRESS
             valueFrom:
               secretKeyRef:
-              name: notification-env
-              value: SENDER_ADDRESS
+                name: notification-env
+                value: SENDER_ADDRESS
         ports:
-          - containerPort: 3000
+          - containerPort: 80
         imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
@@ -56,5 +56,5 @@ spec:
   selector:
     app: notification-exam
   ports:
-    - port: 3000
-      targetPort: 3000
+    - port: 80
+      targetPort: 80

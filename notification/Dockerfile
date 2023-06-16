@@ -8,7 +8,7 @@ RUN npm install
 
 COPY dist dist/
 
-ENV PORT=3000
+ENV PORT=80
 
 EXPOSE ${PORT}
 

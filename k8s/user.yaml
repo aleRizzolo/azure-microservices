@@ -14,21 +14,21 @@ spec:
     spec:
       containers:
         - name: user-exam
-          image:
+          image: alessiorizz/user
           resources:
             requests:
               memory: "90Mi"
               cpu: "90m"
             limits:
-              memory: "80Mi"
+              memory: "90Mi"
           env:
             - name: DATABASE_URI
               valueFrom:
                 secretKeyRef:
-                name: user-env
-                key: DATABASE_URI
+                  name: user-env
+                  key: DATABASE_URI
           ports:
-            - containerPort: 3000
+            - containerPort: 80
           imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
@@ -42,5 +42,5 @@ spec:
   selector:
     app: user-exam
   ports:
-    - port: 3000
-      targetPort: 3000
+    - port: 80
+      targetPort: 80

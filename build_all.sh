@@ -34,3 +34,7 @@ docker push $notification_image_name
 clear
 echo "*** Pushing user ***"
 docker push $user_image_name
+
+clear
+echo "*** Cleaning ***"
+docker image prune -a -f
