@@ -1,5 +1,13 @@
 # ⚠️ Project still in development process
+
 # azure-microservices
+
+# Table of Contents
+
+1. [Architecture](#architecture)
+2. [Run the application](#how-to-run-the-application)
+3. [Create the infrastructure with Terraform](#create-the-infrastructure-with-terraform)
+4. [Destory the resources with Terraform](#destory-the-resources)
 
 ## Architecture
 
@@ -20,12 +28,10 @@ azure-microservices is built using Azure services, in particular:
 
 - An Azure subscription
 - Docker engine installed on your system
-- kubectl
-- Node.js installed on your system (see .nvmrc files for node version used in this project)
-- **Optional:** Terraform
+- [kubectl](https://kubernetes.io/docs/tasks/tools/)
+- [Node.js](https://nodejs.org/en) installed on your system (see .nvmrc files for node version used in this project)
+- **Optional:** [Terraform](https://www.terraform.io/)
 - **Optional** a UNIX-like system (or WSL2 if on Windows)
-
-### How to deploy the application
 
 #### 1. Create your Azure infrastructure.<br>
 
@@ -38,16 +44,15 @@ If you want to run this application on Cloud, you need to create some Azure reso
 - Communication Service
 - Email Service
 
-You can manually create all the resources listed above, but to ease this process (and if Terraform is installed on your system), you can run all the configuration in <code>terraform/</code> folder. Open a shell inside this folder and execute <code>terraform init</code> and <code>terraform apply</code>
+See also [Create the infrastructure with Terraform](#create-the-infrastructure-with-terraform)
 
 #### 2. Build Docker images<br>
 
-- First, clone the repo:<br>
-  <code>git clone https://github.com/aleRizzolo/azure-microservices.git</code>
+- First, clone the repo: <code>git clone https://github.com/aleRizzolo/azure-microservices.git</code>
 
 - Open a shell inside the root folder of the project and give execution permission to <code>build_all.sh</code> file
 
-- Follow the instruction displayed
+- Follow the instructions displayed
 
 #### 3. Create secrets for Kubernetes
 
@@ -73,12 +78,22 @@ The Kubernetes cluster needs a resource, called [Ingress](https://kubernetes.io/
 
 - Open the <code>client</code> folder with Andorid Studio and wait for Gradle to finish all the build process
 
-- Run the command: <code>kubectl get pods -A</code> and copy the LoadBalancer 's crrespondent Ip
+- Run the command: <code>kubectl get pods -A</code> and copy the LoadBalancer 's correspondent Ip
 
-- Paste the ip in Android Code
+- Paste the ip in Android Code (be sure to not delete the full path after the Ip address)
 
 - Run the application (ADV or actual device, your choice!)
 
-### Detory the resources
+## Create the infrastructure with Terraform
 
-If you have Terraform run <code>terraform destory</code>, otherwise go to Azure portal and delete all the resources manually.
+If you have Terraform and you want an easy way to setup all the resources, follow these steps:
+
+- go in <code>terraform/terraform.tfvars</code> file and change all the variables accordingly to your needs
+- run <code>tarraform fmt</code>
+- run <code>tarraform init</code>
+- run <code>tarraform plan</code>
+- run <code>tarraform apply</code> and when prompted enter <code>yes</code>
+
+## Destory the resources with Terraform
+
+If you created the infrastructure using Terraform run <code>terraform destory</code> in order to delete all the resources
