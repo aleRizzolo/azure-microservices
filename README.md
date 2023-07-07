@@ -2,12 +2,17 @@
 
 # azure-microservices
 
+Microservices are an architectural pattern in wich each service is responsible for a specific business capability. One of the primary advantages of microservices is their ability to enable agility and flexibility in software development. With a microservices architecture, development teams can work on different services simultaneously, using different technologies and programming languages as per the specific requirements of each service.<br>
+This project offers a collection of microservices that are deployed on Azure Kubernetes Service.
+
 # Table of Contents
 
 1. [Architecture](#architecture)
 2. [Run the application](#how-to-run-the-application)
 3. [Create the infrastructure with Terraform](#create-the-infrastructure-with-terraform)
-4. [Destory the resources with Terraform](#destory-the-resources)
+4. [Destory the infrastructure with Terraform](#destory-the-infrastructure-with-terraform)
+5. [Future developments](#future-developments)
+6. [How to contribute](#how-to-contribute)
 
 ## Architecture
 
@@ -94,6 +99,23 @@ If you have Terraform and you want an easy way to setup all the resources, follo
 - run <code>tarraform plan</code>
 - run <code>tarraform apply</code> and when prompted enter <code>yes</code>
 
-## Destory the resources with Terraform
+**NOTE:** for a cost saving reason, the Kubernetes cluster creation is not included in Terraform
+
+## Destory the infrastructure with Terraform
 
 If you created the infrastructure using Terraform run <code>terraform destory</code> in order to delete all the resources
+
+## Future developments
+
+1. Add CI/CD
+2. Develop more services
+3. Build a Web-based interface
+
+## How to contribute
+
+If you have any idea on how to improve the code, here's the steps to open a Pull Request:
+
+0. Open a Issue explaining your idea
+1. Fork this repository
+2. On your copy, create a branch and work on it
+3. Open a Pull Request
