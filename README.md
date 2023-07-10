@@ -1,5 +1,3 @@
-# ⚠️ Project still in development process
-
 # azure-microservices
 
 Microservices are an architectural pattern in wich each service is responsible for a specific business capability. One of the primary advantages of microservices is their ability to enable agility and flexibility in software development. With a microservices architecture, development teams can work on different services simultaneously, using different technologies and programming languages as per the specific requirements of each service.<br>
