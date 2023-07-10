@@ -32,6 +32,11 @@ spec:
                 secretKeyRef:
                   name: notification-env
                   key: QUEUE_NAME
+            - name: COMMUNICATION_SERVICES_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: notification-env
+                  key: COMMUNICATION_SERVICES_CONNECTION_STRING
           ports:
             - containerPort: 80
           imagePullPolicy: Always
