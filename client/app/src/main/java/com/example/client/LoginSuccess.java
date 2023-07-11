@@ -74,7 +74,7 @@ public class LoginSuccess extends AppCompatActivity {
                 if (!response.isSuccessful()) {
                     Toast.makeText(LoginSuccess.this, "Error", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(LoginSuccess.this, "Account deleted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginSuccess.this, "Account modified", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -97,7 +97,7 @@ public class LoginSuccess extends AppCompatActivity {
                     Toast.makeText(LoginSuccess.this, "Error", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(LoginSuccess.this, MainActivity.class);
-                    Toast.makeText(LoginSuccess.this, "Account updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginSuccess.this, "Account deleted", Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                 }
             }
