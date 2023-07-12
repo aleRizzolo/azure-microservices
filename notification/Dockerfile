@@ -12,4 +12,4 @@ ENV PORT=80
 
 EXPOSE ${PORT}
 
-CMD [ "npm", "run", "start"]
+CMD ["npm", "run", "start"]

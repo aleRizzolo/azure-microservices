@@ -14,4 +14,4 @@ ENV USER_URL=http://user-service
 
 EXPOSE ${PORT}
 
-CMD [ "npm", "run", "start"]
+CMD ["npm", "run", "start"]
