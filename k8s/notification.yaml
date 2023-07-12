@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
         - name: notification-exam
-          image: alessiorizz/notification
+          image: reigstryesamecloud.azurecr.io/notification
           resources:
             requests:
               memory: "90Mi"
-              cpu: "90m"
+              cpu: "5m"
             limits:
               memory: "90Mi"
           env:

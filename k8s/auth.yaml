@@ -14,13 +14,13 @@ spec:
     spec:
       containers:
         - name: auth-exam
-          image: alessiorizz/auth
+          image: reigstryesamecloud.azurecr.io/auth
           resources:
             requests:
-              memory: "90Mi"
-              cpu: "90m"
+              memory: "100Mi"
+              cpu: "5m"
             limits:
-              memory: "90Mi"
+              memory: "100Mi"
           env:
             - name: DATABASE_URI
               valueFrom:

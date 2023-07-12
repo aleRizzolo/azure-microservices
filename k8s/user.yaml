@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
         - name: user-exam
-          image: alessiorizz/user
+          image: reigstryesamecloud.azurecr.io/user
           resources:
             requests:
               memory: "90Mi"
-              cpu: "90m"
+              cpu: "5m"
             limits:
               memory: "90Mi"
           env:
@@ -43,4 +43,4 @@ spec:
     app: user-exam
   ports:
     - port: 80
-      targetPort: 80
+      targetPort: 3000
